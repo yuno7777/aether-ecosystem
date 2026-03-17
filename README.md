@@ -1,13 +1,10 @@
 <div align="center">
 
-<br>
+<h1>Aether Ecosystem</h1>
 
 <img src="https://img.shields.io/badge/AETHER-ECOSYSTEM-7c3aed?style=for-the-badge&labelColor=0a0a0c&logoColor=white" height="40" />
-
-<br><br>
-
+<br>
 <samp>One Platform. Two Powerhouses. Zero Compromise.</samp>
-
 <br><br>
 
 [![Next.js](https://img.shields.io/badge/Next.js_16-black?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/)
