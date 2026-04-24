@@ -28,6 +28,8 @@ import { CategoryManager } from './components/CategoryManager';
 import { ActivityLog, ActivityLogEntry } from './components/ActivityLog';
 import { StockTransfer } from './components/StockTransfer';
 import { DemandForecast } from './components/DemandForecast';
+import { BarcodeScanner } from './components/BarcodeScanner';
+import { SupplierAlerts } from './components/SupplierAlerts';
 import { Building2, Warehouse as WarehouseIcon, Tag, Settings, Loader2 } from 'lucide-react';
 
 export default function SupplyApp() {
@@ -132,9 +134,8 @@ export default function SupplyApp() {
         try {
             const newSale = await dataService.addSale(productId, qty, userId);
             setSales(prev => [newSale, ...prev]);
-            setProducts(prev => prev.map(p =>
-                p.id === productId ? { ...p, stock: Math.max(0, p.stock - qty) } : p
-            ));
+            const refreshedProducts = await dataService.fetchProducts(userId);
+            setProducts(refreshedProducts);
         } catch (err) {
             console.error('Failed to add sale:', err);
         }
@@ -323,10 +324,16 @@ export default function SupplyApp() {
                 return <SalesLog sales={sales} products={products} onAddSale={handleAddSale} />;
             case 'suppliers':
                 return <Suppliers suppliers={suppliers} deliveries={deliveries} analytics={analytics} products={products} />;
+            case 'supplier-alerts':
+                return <SupplierAlerts analytics={analytics} suppliers={suppliers} />;
             case 'intelligence':
                 return <Intelligence analytics={analytics} sales={sales} />;
             case 'purchase-orders':
                 return <PurchaseOrders analytics={analytics} suppliers={suppliers} products={products} />;
+            case 'scanner':
+                return <BarcodeScanner products={products} onUpdateStock={(productId, newStock) => {
+                    setProducts(prev => prev.map(p => p.id === productId ? { ...p, stock: newStock } : p));
+                }} />;
             case 'pricing':
                 return <PriceOptimizer analytics={analytics} />;
             case 'category-analytics':
@@ -380,10 +387,10 @@ export default function SupplyApp() {
 
                             <button
                                 onClick={() => setShowWarehouseManager(true)}
-                                className="p-6 rounded-xl border border-border bg-card hover:border-emerald-500/50 transition-all group"
+                                className="p-6 rounded-xl border border-border bg-card hover:border-purple-500/50 transition-all group"
                             >
-                                <div className="p-3 bg-emerald-500/10 rounded-lg w-fit mb-3 group-hover:bg-emerald-500/20">
-                                    <WarehouseIcon className="w-6 h-6 text-emerald-400" />
+                                <div className="p-3 bg-purple-500/10 rounded-lg w-fit mb-3 group-hover:bg-purple-500/20">
+                                    <WarehouseIcon className="w-6 h-6 text-purple-400" />
                                 </div>
                                 <h3 className="font-semibold text-foreground text-left">Manage Warehouses</h3>
                                 <p className="text-sm text-muted-foreground mt-1 text-left">{warehouses.length} warehouses</p>
@@ -422,10 +429,10 @@ export default function SupplyApp() {
                             <p className="text-muted-foreground mt-1">Manage your supply chain and inventory metrics.</p>
                         </div>
                         <div className="flex items-center gap-4">
-                            <div className="flex items-center gap-2 px-3 py-1 bg-emerald-950/30 text-emerald-400 rounded-full border border-emerald-900/50 text-sm font-medium">
+                            <div className="flex items-center gap-2 px-3 py-1 bg-purple-950/30 text-purple-400 rounded-full border border-purple-900/50 text-sm font-medium">
                                 <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                                 </span>
                                 System Operational
                             </div>
@@ -444,7 +451,14 @@ export default function SupplyApp() {
             </main>
 
             {/* Floating AI Chatbot */}
-            <AIChatbot analytics={analytics} sales={sales} suppliers={suppliers} />
+            <AIChatbot
+                analytics={analytics}
+                sales={sales}
+                suppliers={suppliers}
+                onAddProduct={handleAddProduct}
+                onUpdateProduct={handleUpdateProduct}
+                onDeleteProduct={handleDeleteProduct}
+            />
 
             {/* Manager Modals */}
             <SupplierManager

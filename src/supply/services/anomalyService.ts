@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { generateText } from './genkitService';
+import { generateText } from './aiService';
 import { ProductAnalytics, Sale } from "../types";
 
 export interface Anomaly {

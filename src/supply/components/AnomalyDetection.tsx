@@ -82,8 +82,8 @@ export const AnomalyDetection: React.FC<AnomalyDetectionProps> = ({ analytics, s
         return (
             <div className="rounded-xl border border-border bg-card p-6">
                 <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-emerald-500/10 rounded-lg">
-                        <Bell className="w-5 h-5 text-emerald-400" />
+                    <div className="p-2 bg-purple-500/10 rounded-lg">
+                        <Bell className="w-5 h-5 text-purple-400" />
                     </div>
                     <div>
                         <h3 className="font-semibold text-foreground">Anomaly Detection</h3>
@@ -179,7 +179,7 @@ export const AnomalyDetection: React.FC<AnomalyDetectionProps> = ({ analytics, s
                                             <span className="text-foreground font-medium">{anomaly.metric}</span>
                                         </span>
                                         {anomaly.change !== 0 && (
-                                            <span className={anomaly.change > 0 ? 'text-emerald-400' : 'text-red-400'}>
+                                            <span className={anomaly.change > 0 ? 'text-purple-400' : 'text-red-400'}>
                                                 {anomaly.change > 0 ? '+' : ''}{Math.round(anomaly.change)}%
                                             </span>
                                         )}

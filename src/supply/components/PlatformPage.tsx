@@ -43,12 +43,12 @@ export function PlatformPage() {
                     className="text-center z-10 max-w-4xl"
                 >
                     <div className="flex justify-center mb-8">
-                        <div className="px-4 py-1.5 rounded-full bg-[#a78bfa]/10 border border-[#a78bfa]/20 text-[10px] font-bold tracking-[0.2em] uppercase text-[#a78bfa]">
+                        <div className="px-4 py-1.5 rounded-full bg-[#7663b0]/10 border border-[#7663b0]/20 text-[10px] font-bold tracking-[0.2em] uppercase text-[#7663b0]">
                             Platform Architecture
                         </div>
                     </div>
                     <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-none">
-                        Built for<br /><span className="text-[#a78bfa]">-</span>scale.
+                        Built for<br /><span className="text-[#7663b0]">-</span>scale.
                     </h1>
                     <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
                         Aether operates on a globally distributed edge network, delivering sub-15ms latency for critical logistics updates, powered by Gemini AI for intelligent forecasting and anomaly detection.
@@ -71,7 +71,7 @@ export function PlatformPage() {
                         { icon: <Shield className="w-6 h-6" />, title: 'Anomaly Defense', desc: 'Proactive detection of supply chain disruptions, stock irregularities, and demand spikes. Automated alerts before problems cascade.', stat: 'Real-time' },
                     ].map((card, i) => (
                         <motion.div key={i} variants={staggerItem} className="rounded-2xl bg-[#111113] border border-white/5 p-8 flex flex-col gap-6 group hover:bg-[#161619] transition-all hover:-translate-y-1">
-                            <div className="w-12 h-12 rounded-full bg-[#a78bfa]/10 flex items-center justify-center text-[#a78bfa] border border-[#a78bfa]/20">
+                            <div className="w-12 h-12 rounded-full bg-[#7663b0]/10 flex items-center justify-center text-[#7663b0] border border-[#7663b0]/20">
                                 {card.icon}
                             </div>
                             <div>
@@ -79,7 +79,7 @@ export function PlatformPage() {
                                 <p className="text-sm text-gray-400 leading-relaxed">{card.desc}</p>
                             </div>
                             <div className="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-                                <span className="text-2xl font-bold text-[#a78bfa]">{card.stat}</span>
+                                <span className="text-2xl font-bold text-[#7663b0]">{card.stat}</span>
                                 <span className="text-[10px] text-gray-600 uppercase tracking-widest">Performance</span>
                             </div>
                         </motion.div>
@@ -92,7 +92,7 @@ export function PlatformPage() {
                 <div className="flex flex-col md:flex-row justify-between items-start gap-16">
                     <div className="md:w-1/2">
                         <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 leading-none">
-                            Technical<br /><span className="text-[#a78bfa]">-</span>Stack
+                            Technical<br /><span className="text-[#7663b0]">-</span>Stack
                         </h2>
                         <p className="text-sm text-gray-400 leading-relaxed max-w-md">
                             Every layer of Aether is designed for resilience, speed, and intelligence. From the serverless compute layer to the AI inference pipeline, we optimize for zero downtime.
@@ -140,7 +140,7 @@ export function PlatformPage() {
             <section className="py-32 px-4 w-full bg-black">
                 <motion.div {...fadeIn} whileInView="animate" className="max-w-7xl mx-auto text-center">
                     <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">
-                        Ready to<br /><span className="text-[#a78bfa]">-</span>deploy?
+                        Ready to<br /><span className="text-[#7663b0]">-</span>deploy?
                     </h2>
                     <p className="text-sm text-gray-400 max-w-lg mx-auto mb-10 leading-relaxed">
                         Get started with Aether Supply in minutes. Connect your warehouse data, configure your AI modules, and watch your supply chain transform.

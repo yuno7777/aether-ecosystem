@@ -43,12 +43,12 @@ export function SolutionsPage() {
                     className="text-center z-10 max-w-4xl"
                 >
                     <div className="flex justify-center mb-8">
-                        <div className="px-4 py-1.5 rounded-full bg-[#a78bfa]/10 border border-[#a78bfa]/20 text-[10px] font-bold tracking-[0.2em] uppercase text-[#a78bfa]">
+                        <div className="px-4 py-1.5 rounded-full bg-[#7663b0]/10 border border-[#7663b0]/20 text-[10px] font-bold tracking-[0.2em] uppercase text-[#7663b0]">
                             Industry Solutions
                         </div>
                     </div>
                     <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-none">
-                        Solutions for<br /><span className="text-[#a78bfa]">-</span>every chain.
+                        Solutions for<br /><span className="text-[#7663b0]">-</span>every chain.
                     </h1>
                     <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
                         From enterprise retail to global manufacturing, our tailored intelligent modules orchestrate supply chains with precision across every industry vertical.
@@ -73,7 +73,7 @@ export function SolutionsPage() {
                     ].map((solution, i) => (
                         <motion.div key={i} variants={staggerItem} className="rounded-2xl bg-[#111113] border border-white/5 p-8 flex flex-col gap-6 group hover:bg-[#161619] transition-all hover:-translate-y-1">
                             <div className="flex items-start justify-between">
-                                <div className="w-12 h-12 rounded-full bg-[#a78bfa]/10 flex items-center justify-center text-[#a78bfa] border border-[#a78bfa]/20">
+                                <div className="w-12 h-12 rounded-full bg-[#7663b0]/10 flex items-center justify-center text-[#7663b0] border border-[#7663b0]/20">
                                     {solution.icon}
                                 </div>
                                 <span className="text-[80px] font-bold text-white/[0.03] leading-none pointer-events-none -mt-4 -mr-2">0{i + 1}</span>
@@ -100,7 +100,7 @@ export function SolutionsPage() {
                     <div className="flex flex-col md:flex-row justify-between items-start gap-16">
                         <div className="md:w-1/2">
                             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 leading-none">
-                                Core<br /><span className="text-[#a78bfa]">-</span>Capabilities
+                                Core<br /><span className="text-[#7663b0]">-</span>Capabilities
                             </h2>
                             <p className="text-sm text-gray-400 leading-relaxed max-w-md mb-8">
                                 Every solution is built on our unified platform. These capabilities come standard, no matter your industry.
@@ -120,7 +120,7 @@ export function SolutionsPage() {
                                     <span className="text-sm font-semibold text-white">{item.name}</span>
                                     <span className="text-xs text-gray-500 hidden md:block">{item.desc}</span>
                                     <div className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
                                         <span className="text-[10px] text-gray-400 uppercase tracking-widest">{item.status}</span>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ export function SolutionsPage() {
             <section className="py-32 px-4 w-full bg-black">
                 <motion.div {...fadeIn} whileInView="animate" className="max-w-7xl mx-auto text-center">
                     <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">
-                        Find your<br /><span className="text-[#a78bfa]">-</span>solution.
+                        Find your<br /><span className="text-[#7663b0]">-</span>solution.
                     </h2>
                     <p className="text-sm text-gray-400 max-w-lg mx-auto mb-10 leading-relaxed">
                         No matter your industry, Aether adapts to your supply chain. Start with our intelligent dashboard and evolve as you scale.

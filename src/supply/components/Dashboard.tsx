@@ -82,7 +82,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ analytics, totalValue }) =
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {[
           { label: 'Total Products', value: analytics.length, icon: Package, color: 'text-blue-400', bg: 'bg-blue-500/10' },
-          { label: 'Inventory Value', value: `₹${totalValue.toLocaleString()}`, icon: DollarSign, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+          { label: 'Inventory Value', value: `₹${totalValue.toLocaleString()}`, icon: DollarSign, color: 'text-purple-400', bg: 'bg-purple-500/10' },
           { label: 'Low/Critical Stock', value: analytics.filter(a => a.status === StockStatus.LOW || a.status === StockStatus.CRITICAL).length, icon: AlertTriangle, color: 'text-red-400', bg: 'bg-red-500/10' },
           { label: 'Reorder Suggestions', value: analytics.filter(a => a.suggestedReorderQty > 0).length, icon: TrendingUp, color: 'text-purple-400', bg: 'bg-purple-500/10' }
         ].map((stat, i) => (

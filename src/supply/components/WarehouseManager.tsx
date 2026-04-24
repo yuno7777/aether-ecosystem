@@ -71,8 +71,8 @@ export const WarehouseManager: React.FC<WarehouseManagerProps> = ({
             <div className="relative bg-card border border-border rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden">
                 <div className="flex items-center justify-between px-6 py-4 border-b border-border">
                     <div className="flex items-center gap-3">
-                        <div className="p-2 bg-emerald-500/10 rounded-lg">
-                            <WarehouseIcon className="w-5 h-5 text-emerald-400" />
+                        <div className="p-2 bg-purple-500/10 rounded-lg">
+                            <WarehouseIcon className="w-5 h-5 text-purple-400" />
                         </div>
                         <h2 className="text-lg font-semibold text-foreground">Manage Warehouses</h2>
                     </div>
@@ -132,7 +132,7 @@ export const WarehouseManager: React.FC<WarehouseManagerProps> = ({
                             <div className="flex gap-2 mt-4">
                                 <button
                                     onClick={handleSave}
-                                    className="flex items-center gap-2 px-4 py-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 text-sm"
+                                    className="flex items-center gap-2 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 text-sm"
                                 >
                                     <Save className="w-4 h-4" />
                                     {editingId ? 'Update' : 'Add'}

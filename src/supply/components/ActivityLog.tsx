@@ -19,7 +19,7 @@ interface ActivityLogProps {
 
 const getActionIcon = (action: ActivityLogEntry['action']) => {
     switch (action) {
-        case 'add': return <Plus className="w-3 h-3 text-emerald-400" />;
+        case 'add': return <Plus className="w-3 h-3 text-purple-400" />;
         case 'update': return <Edit className="w-3 h-3 text-blue-400" />;
         case 'delete': return <Trash className="w-3 h-3 text-red-400" />;
     }
@@ -78,7 +78,7 @@ export const ActivityLog: React.FC<ActivityLogProps> = ({ entries }) => {
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                     <p className="text-xs text-muted-foreground">Additions</p>
-                    <p className="text-2xl font-bold text-emerald-400">{entries.filter(e => e.action === 'add').length}</p>
+                    <p className="text-2xl font-bold text-purple-400">{entries.filter(e => e.action === 'add').length}</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                     <p className="text-xs text-muted-foreground">Updates</p>

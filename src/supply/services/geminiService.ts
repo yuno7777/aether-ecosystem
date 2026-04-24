@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { generateText, generateJSON } from './genkitService';
+import { generateText, generateJSON } from './aiService';
 import { ProductAnalytics } from "../types";
 
 export interface InventoryInsight {

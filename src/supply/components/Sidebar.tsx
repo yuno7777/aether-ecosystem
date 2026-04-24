@@ -2,8 +2,9 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { LayoutDashboard, Package, ShoppingCart, Truck, History, Sparkles, Settings, FileText, DollarSign, Layers, Percent, TrendingUp, Bell, Warehouse, ScrollText, LogOut, ChevronDown, ChevronRight, BarChart3, Building2, Cpu, ArrowRightLeft, Brain } from 'lucide-react';
+import { LayoutDashboard, Package, ShoppingCart, Truck, History, Sparkles, Settings, FileText, DollarSign, Layers, Percent, TrendingUp, Bell, Warehouse, ScrollText, LogOut, ChevronDown, ChevronRight, BarChart3, Building2, Cpu, ArrowRightLeft, Brain, ScanLine } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
+import { useAuth, ROLE_META } from '../../auth/AuthProvider';
 
 
 interface SidebarProps {
@@ -47,6 +48,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange }) =
         { id: 'inventory', label: 'Products', icon: Package },
         { id: 'sales', label: 'Sales', icon: History },
         { id: 'purchase-orders', label: 'Purchase Orders', icon: FileText },
+        { id: 'scanner', label: 'Barcode Scanner', icon: ScanLine },
         { id: 'reorder', label: 'Smart Reorder', icon: ShoppingCart },
       ],
       defaultOpen: true
@@ -57,6 +59,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange }) =
       icon: Building2,
       items: [
         { id: 'suppliers', label: 'Suppliers', icon: Truck },
+        { id: 'supplier-alerts', label: 'Supplier Alerts', icon: Bell },
         { id: 'warehouses', label: 'Warehouses', icon: Warehouse },
         { id: 'stock-transfer', label: 'Stock Transfer', icon: ArrowRightLeft },
       ],
@@ -205,18 +208,33 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange }) =
           <LogOut className="w-4 h-4 flex-shrink-0" />
           <span className="sidebar-text font-medium">Exit to Platform</span>
         </Link>
+        <AuthUserBlock />
         <div className="flex items-center justify-between px-2">
           <span className="text-xs text-muted-foreground sidebar-text">Theme</span>
           <ThemeToggle />
-        </div>
-        <div className="flex items-center gap-3 px-2">
-          <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">U</div>
-          <div className="flex flex-col sidebar-text flex-1 min-w-0">
-            <span className="text-xs font-semibold text-foreground truncate">{user?.firstName || 'User'}</span>
-            <span className="text-[10px] text-muted-foreground">Logistics Mgr.</span>
-          </div>
         </div>
       </div>
     </div>
   );
 };
+
+function AuthUserBlock() {
+  const { user: authUser, logout } = useAuth();
+  if (!authUser) return null;
+  const meta = ROLE_META[authUser.role];
+  return (
+    <>
+      <div className="flex items-center gap-3 px-2">
+        <div className={`w-8 h-8 rounded-full ${meta.bg} border ${meta.border} flex items-center justify-center ${meta.color} text-xs font-bold`}>{authUser.name.charAt(0)}</div>
+        <div className="flex flex-col sidebar-text flex-1 min-w-0">
+          <span className="text-xs font-semibold text-foreground truncate">{authUser.name}</span>
+          <span className={`text-[10px] font-medium ${meta.color}`}>{meta.label}</span>
+        </div>
+      </div>
+      <button onClick={logout} className="flex items-center gap-3 px-2 py-1.5 rounded-lg text-xs text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-colors w-full">
+        <LogOut className="w-3.5 h-3.5 flex-shrink-0" />
+        <span className="sidebar-text">Sign Out</span>
+      </button>
+    </>
+  );
+}

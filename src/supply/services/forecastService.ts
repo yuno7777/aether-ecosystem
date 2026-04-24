@@ -1,6 +1,8 @@
 // @ts-nocheck
-import { generateText } from './genkitService';
+import { generateText } from './aiService';
 import { ProductAnalytics, Sale } from '../types';
+
+const API_BASE = process.env.NEXT_PUBLIC_SUPPLY_API_URL || 'http://localhost:8000/api/supply';
 
 export interface DemandForecastResult {
     productId: string;
@@ -14,6 +16,74 @@ export interface DemandForecastResult {
     seasonalFactor: string;
     insight: string;
 }
+
+// Fetch AI/ML forecast from the unified FastAPI backend
+export const fetchMLForecasts = async (
+    analytics: ProductAnalytics[],
+    sales: Sale[]
+): Promise<DemandForecastResult[]> => {
+    const forecasts: DemandForecastResult[] = [];
+    
+    // Sort by average daily sales and limit to top 15 products to avoid overloading the backend
+    const topProducts = [...analytics]
+        .sort((a, b) => b.averageDailySales - a.averageDailySales)
+        .slice(0, 15);
+
+    // Call backend in parallel batches
+    const BATCH_SIZE = 5;
+    for (let i = 0; i < topProducts.length; i += BATCH_SIZE) {
+        const batch = topProducts.slice(i, i + BATCH_SIZE);
+        
+        await Promise.all(batch.map(async (item) => {
+            try {
+                const res = await fetch(`${API_BASE}/forecast`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        product_id: item.product.id, 
+                        days_ahead: 30
+                    })
+                });
+                
+                if (res.ok) {
+                    const data = await res.json();
+                    const avgDaily = data.total_predicted / 30;
+                    
+                    let trend: DemandForecastResult['trend'] = 'stable';
+                    let growthRate = 0;
+                    
+                    if (item.averageDailySales > 0) {
+                        growthRate = ((avgDaily - item.averageDailySales) / item.averageDailySales) * 100;
+                        if (growthRate > 5) trend = 'growing';
+                        else if (growthRate < -5) trend = 'declining';
+                    } else if (avgDaily > 0) {
+                        trend = 'growing';
+                        growthRate = 100;
+                    }
+                    
+                    forecasts.push({
+                        productId: item.product.id,
+                        productName: item.product.name,
+                        currentDailyDemand: parseFloat(item.averageDailySales.toFixed(2)),
+                        predictedDailyDemand: parseFloat(Math.max(0, avgDaily).toFixed(2)),
+                        confidence: data.confidence || 'medium',
+                        trend,
+                        growthPercent: parseFloat(growthRate.toFixed(1)),
+                        recommendedStock: data.recommended_reorder,
+                        seasonalFactor: 'Normal',
+                        insight: data.message || `XGBoost ML Model Forecast: ${data.total_predicted.toFixed(0)} total demand over next 30 days.`
+                    });
+                } else {
+                    console.error(`Backend returned ${res.status} for ${item.product.name}`);
+                }
+            } catch (error) {
+                console.error(`Failed to fetch ML forecast for ${item.product.name}:`, error);
+            }
+        }));
+    }
+    
+    return forecasts.sort((a, b) => Math.abs(b.growthPercent) - Math.abs(a.growthPercent));
+};
 
 // Local math-based forecast (fallback)
 export const calculateLocalForecast = (

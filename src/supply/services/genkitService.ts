@@ -9,8 +9,8 @@ console.log("AI Service: API Key status:", apiKey ? `Loaded (${apiKey.substring(
 // Initialize Google GenAI
 const ai = new GoogleGenAI({ apiKey });
 
-// Model configuration - using gemini-2.5-flash-lite as requested
-const MODEL = 'gemini-2.5-flash-lite';
+// Model configuration - using gemini-3.1-flash-lite-preview as requested
+const MODEL = 'gemini-3.1-flash-lite-preview';
 
 export interface GenerateOptions {
     prompt: string;

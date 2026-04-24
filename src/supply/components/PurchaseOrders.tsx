@@ -1,7 +1,7 @@
 // @ts-nocheck
 "use client";
 import React, { useState, useMemo } from 'react';
-import { FileText, Mail, Copy, Check, ExternalLink, Loader2, Sparkles, Package, Truck, AlertTriangle, Plus } from 'lucide-react';
+import { FileText, Mail, Copy, Check, ExternalLink, Loader2, Sparkles, Package, Truck, AlertTriangle, Plus, Download } from 'lucide-react';
 import { ProductAnalytics, Supplier, Product } from '../types';
 import { PurchaseOrder, generatePurchaseOrders, generateAIEmail, generateMailtoLink } from '../services/purchaseOrderService';
 import { CustomOrderModal } from './CustomOrderModal';
@@ -19,7 +19,7 @@ const getUrgencyStyles = (urgency: PurchaseOrder['urgency']) => {
         case 'urgent':
             return { bg: 'bg-amber-500/10', border: 'border-amber-900/50', text: 'text-amber-400', badge: 'bg-amber-500/20' };
         case 'normal':
-            return { bg: 'bg-emerald-500/10', border: 'border-emerald-900/50', text: 'text-emerald-400', badge: 'bg-emerald-500/20' };
+            return { bg: 'bg-purple-500/10', border: 'border-purple-900/50', text: 'text-purple-400', badge: 'bg-purple-500/20' };
     }
 };
 
@@ -54,6 +54,41 @@ export const PurchaseOrders: React.FC<PurchaseOrdersProps> = ({ analytics, suppl
         await navigator.clipboard.writeText(emailContent);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
+    };
+
+    const handleDownloadPDF = async (order: PurchaseOrder) => {
+        try {
+            const { pdf } = await import('@react-pdf/renderer');
+            const { PurchaseOrderTemplate } = await import('../../components/pdf/PurchaseOrderTemplate');
+            const React = await import('react');
+
+            const poData = {
+                number: order.id,
+                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                expectedDelivery: new Date(Date.now() + order.supplier.leadTimeDays * 86400000).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                supplier: {
+                    name: order.supplier.name,
+                    email: order.supplier.contactEmail,
+                    location: order.supplier.location || 'N/A',
+                },
+                items: order.items.map(item => ({
+                    name: item.productName,
+                    sku: item.productId,
+                    quantity: item.quantity,
+                    unitCost: item.unitCost || 0,
+                })),
+            };
+
+            const blob = await pdf(React.createElement(PurchaseOrderTemplate, { data: poData })).toBlob();
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `PO-${order.id}-${order.supplier.name.replace(/\s+/g, '_')}.pdf`;
+            a.click();
+            URL.revokeObjectURL(url);
+        } catch (err) {
+            console.error('PDF generation failed:', err);
+        }
     };
 
     const handleOpenEmail = () => {
@@ -100,8 +135,8 @@ export const PurchaseOrders: React.FC<PurchaseOrdersProps> = ({ analytics, suppl
                             <p className="text-sm text-muted-foreground">Total Value</p>
                             <p className="text-2xl font-bold text-foreground mt-1">₹{totalValue.toLocaleString()}</p>
                         </div>
-                        <div className="p-3 bg-emerald-500/10 rounded-lg">
-                            <Truck className="w-5 h-5 text-emerald-400" />
+                        <div className="p-3 bg-purple-500/10 rounded-lg">
+                            <Truck className="w-5 h-5 text-purple-400" />
                         </div>
                     </div>
                 </div>
@@ -177,10 +212,17 @@ export const PurchaseOrders: React.FC<PurchaseOrdersProps> = ({ analytics, suppl
                         {selectedOrder && !isGenerating && (
                             <div className="flex gap-2">
                                 <button
+                                    onClick={() => selectedOrder && handleDownloadPDF(selectedOrder)}
+                                    className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 rounded-lg transition-colors border border-purple-500/20"
+                                >
+                                    <Download className="w-4 h-4" />
+                                    PDF
+                                </button>
+                                <button
                                     onClick={handleCopy}
                                     className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-muted hover:bg-muted/80 rounded-lg transition-colors"
                                 >
-                                    {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                                    {copied ? <Check className="w-4 h-4 text-purple-400" /> : <Copy className="w-4 h-4" />}
                                     {copied ? 'Copied!' : 'Copy'}
                                 </button>
                                 <button

@@ -99,7 +99,7 @@ export const CategoryManager: React.FC<CategoryManagerProps> = ({
                             <div className="flex gap-2">
                                 <button
                                     onClick={handleSave}
-                                    className="flex items-center gap-2 px-4 py-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 text-sm"
+                                    className="flex items-center gap-2 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 text-sm"
                                 >
                                     <Save className="w-4 h-4" />
                                     {editingCategory ? 'Update' : 'Add'}

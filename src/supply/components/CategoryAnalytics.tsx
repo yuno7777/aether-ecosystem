@@ -88,7 +88,7 @@ export const CategoryAnalytics: React.FC<CategoryAnalyticsProps> = ({ analytics 
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                     <p className="text-xs text-muted-foreground">Top Category Value</p>
-                    <p className="text-lg font-bold text-emerald-400">₹{categoryData[0]?.totalValue.toLocaleString() || 0}</p>
+                    <p className="text-lg font-bold text-purple-400">₹{categoryData[0]?.totalValue.toLocaleString() || 0}</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                     <p className="text-xs text-muted-foreground">Categories at Risk</p>
@@ -189,7 +189,7 @@ export const CategoryAnalytics: React.FC<CategoryAnalyticsProps> = ({ analytics 
                                     <td className="px-6 py-4 text-center text-muted-foreground">{cat.products}</td>
                                     <td className="px-6 py-4 text-right text-foreground">{cat.totalStock.toLocaleString()}</td>
                                     <td className="px-6 py-4 text-right">
-                                        <span className="font-medium text-emerald-400">₹{cat.totalValue.toLocaleString()}</span>
+                                        <span className="font-medium text-purple-400">₹{cat.totalValue.toLocaleString()}</span>
                                     </td>
                                     <td className="px-6 py-4 text-right text-muted-foreground">{cat.avgDailySales.toFixed(1)}</td>
                                     <td className="px-6 py-4 text-center">
@@ -198,7 +198,7 @@ export const CategoryAnalytics: React.FC<CategoryAnalyticsProps> = ({ analytics 
                                         ) : cat.lowItems > 0 ? (
                                             <span className="px-2 py-1 text-xs bg-amber-500/20 text-amber-400 rounded">{cat.lowItems} low</span>
                                         ) : (
-                                            <span className="px-2 py-1 text-xs bg-emerald-500/20 text-emerald-400 rounded">Healthy</span>
+                                            <span className="px-2 py-1 text-xs bg-purple-500/20 text-purple-400 rounded">Healthy</span>
                                         )}
                                     </td>
                                 </tr>

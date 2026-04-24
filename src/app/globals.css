@@ -26,6 +26,19 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
   --font-sans: 'Inter', system-ui, sans-serif;
+  
+  /* Custom Global Purple Scale anchored on #7663b0 */
+  --color-purple-50: #f4f3f8;
+  --color-purple-100: #e5e2ef;
+  --color-purple-200: #d2ccdf;
+  --color-purple-300: #b5abbe;
+  --color-purple-400: #9787af;
+  --color-purple-500: #7663b0;
+  --color-purple-600: #625195;
+  --color-purple-700: #4e4079;
+  --color-purple-800: #3c325d;
+  --color-purple-900: #2b2444;
+  --color-purple-950: #1b172d;
 }
 
 /* Aether Supply Theme Variables — Dark Default */

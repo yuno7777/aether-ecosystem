@@ -191,7 +191,7 @@ export const TrendComparison: React.FC<TrendComparisonProps> = ({ analytics, sal
                                     vs {data.metric === 'Revenue' ? `₹${data.previous.toLocaleString()}` : data.previous.toFixed(data.metric.includes('Avg') ? 1 : 0)}
                                 </p>
                             </div>
-                            <div className={`flex items-center gap-1 px-2 py-1 rounded-lg text-sm font-medium ${data.icon === 'up' ? 'bg-emerald-500/20 text-emerald-400' :
+                            <div className={`flex items-center gap-1 px-2 py-1 rounded-lg text-sm font-medium ${data.icon === 'up' ? 'bg-purple-500/20 text-purple-400' :
                                 data.icon === 'down' ? 'bg-red-500/20 text-red-400' :
                                     'bg-neutral-500/20 text-neutral-400'
                                 }`}>

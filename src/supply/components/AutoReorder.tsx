@@ -74,8 +74,8 @@ export const AutoReorder: React.FC<AutoReorderProps> = ({
                 {/* Header */}
                 <div className="flex items-center justify-between px-6 py-4 border-b border-border">
                     <div className="flex items-center gap-3">
-                        <div className="p-2 bg-emerald-500/10 rounded-lg">
-                            <Send className="w-5 h-5 text-emerald-400" />
+                        <div className="p-2 bg-purple-500/10 rounded-lg">
+                            <Send className="w-5 h-5 text-purple-400" />
                         </div>
                         <div>
                             <h2 className="text-lg font-semibold text-foreground">Quick Order</h2>
@@ -91,8 +91,8 @@ export const AutoReorder: React.FC<AutoReorderProps> = ({
                 <div className="p-6 overflow-y-auto max-h-[calc(90vh-200px)]">
                     {sent ? (
                         <div className="text-center py-8">
-                            <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <CheckCircle className="w-8 h-8 text-emerald-400" />
+                            <div className="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <CheckCircle className="w-8 h-8 text-purple-400" />
                             </div>
                             <h3 className="text-lg font-semibold text-foreground mb-2">Order Placed!</h3>
                             <p className="text-sm text-muted-foreground mb-4">
@@ -181,7 +181,7 @@ export const AutoReorder: React.FC<AutoReorderProps> = ({
                         <button
                             onClick={handleSendOrder}
                             disabled={sending || totalItems === 0}
-                            className="flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors disabled:opacity-50"
+                            className="flex items-center gap-2 px-4 py-2 text-sm bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors disabled:opacity-50"
                         >
                             {sending ? (
                                 <>

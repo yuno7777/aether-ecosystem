@@ -1,4 +1,4 @@
-import { PrismaClient } from './generated/supply';
+import { PrismaClient } from '@prisma/client';
 import { mockSuppliers, mockWarehouses, mockProducts, mockSales, mockStockTransfers, mockActivityLog, mockCategories } from '../src/supply/services/mockData';
 
 const prisma = new PrismaClient();

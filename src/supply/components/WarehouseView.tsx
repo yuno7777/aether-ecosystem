@@ -1,9 +1,12 @@
 // @ts-nocheck
 "use client";
 import React, { useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import { MapPin, Package, Warehouse as WarehouseIcon, TrendingUp } from 'lucide-react';
 import { ProductAnalytics, Warehouse, StockStatus } from '../types';
+
+const Warehouse3D = dynamic(() => import('./Warehouse3D').then(mod => ({ default: mod.Warehouse3D })), { ssr: false });
 
 interface WarehouseViewProps {
     analytics: ProductAnalytics[];
@@ -64,6 +67,16 @@ export const WarehouseView: React.FC<WarehouseViewProps> = ({ analytics, warehou
                     <h3 className="text-lg font-semibold text-foreground">Warehouse Locations</h3>
                     <p className="text-sm text-muted-foreground">Multi-location inventory tracking</p>
                 </div>
+            </div>
+
+            {/* 3D Warehouse Visualization */}
+            <div className="rounded-2xl border border-border bg-card p-4 overflow-hidden">
+                <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+                    <h4 className="text-sm font-medium text-foreground">3D Layout</h4>
+                    <span className="text-[10px] text-muted-foreground ml-auto">Drag to rotate · Scroll to zoom</span>
+                </div>
+                <Warehouse3D warehouses={warehouses} analytics={analytics} />
             </div>
 
             {/* Stats Cards */}
@@ -163,7 +176,7 @@ export const WarehouseView: React.FC<WarehouseViewProps> = ({ analytics, warehou
                                 </div>
                             </div>
                             <div className={`px-2 py-1 text-xs rounded font-medium ${warehouse.utilizationPercent > 80 ? 'bg-red-500/20 text-red-400' :
-                                warehouse.utilizationPercent > 50 ? 'bg-amber-500/20 text-amber-400' : 'bg-emerald-500/20 text-emerald-400'
+                                warehouse.utilizationPercent > 50 ? 'bg-amber-500/20 text-amber-400' : 'bg-purple-500/20 text-purple-400'
                                 }`}>
                                 {warehouse.utilizationPercent.toFixed(0)}% full
                             </div>
@@ -180,7 +193,7 @@ export const WarehouseView: React.FC<WarehouseViewProps> = ({ analytics, warehou
                             </div>
                             <div className="flex justify-between text-sm">
                                 <span className="text-muted-foreground">Value</span>
-                                <span className="text-emerald-400 font-medium">₹{warehouse.totalValue.toLocaleString()}</span>
+                                <span className="text-purple-400 font-medium">₹{warehouse.totalValue.toLocaleString()}</span>
                             </div>
                         </div>
 

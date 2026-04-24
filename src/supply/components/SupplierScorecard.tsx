@@ -77,7 +77,7 @@ export const SupplierScorecard: React.FC<SupplierScorecardProps> = ({ suppliers,
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                     <p className="text-xs text-muted-foreground">Best On-Time</p>
-                    <p className="text-lg font-bold text-emerald-400 truncate">{bestOnTime.name}</p>
+                    <p className="text-lg font-bold text-purple-400 truncate">{bestOnTime.name}</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                     <p className="text-xs text-muted-foreground">Top Rated</p>

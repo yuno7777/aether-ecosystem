@@ -151,13 +151,13 @@ export const Intelligence: React.FC<IntelligenceProps> = ({ analytics, sales }) 
                 <div className="rounded-lg bg-secondary/30 border border-border/50 p-5 shadow-inner">
                   <div className="flex justify-between items-end mb-3">
                     <span className="text-sm font-medium text-muted-foreground">Health Score</span>
-                    <span className={`text-xl font-bold ${insight.healthScore > 70 ? 'text-emerald-500' : insight.healthScore > 40 ? 'text-amber-500' : 'text-red-500'}`}>
+                    <span className={`text-xl font-bold ${insight.healthScore > 70 ? 'text-purple-500' : insight.healthScore > 40 ? 'text-amber-500' : 'text-red-500'}`}>
                       {insight.healthScore}/100
                     </span>
                   </div>
                   <div className="h-2.5 w-full bg-background rounded-full overflow-hidden border border-border/50">
                     <div
-                      className={`h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_10px_currentColor] ${insight.healthScore > 70 ? 'bg-emerald-500 text-emerald-500' : insight.healthScore > 40 ? 'bg-amber-500 text-amber-500' : 'bg-red-500 text-red-500'}`}
+                      className={`h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_10px_currentColor] ${insight.healthScore > 70 ? 'bg-purple-500 text-purple-500' : insight.healthScore > 40 ? 'bg-amber-500 text-amber-500' : 'bg-red-500 text-red-500'}`}
                       style={{ width: `${insight.healthScore}%` }}
                     />
                   </div>
@@ -275,12 +275,12 @@ export const Intelligence: React.FC<IntelligenceProps> = ({ analytics, sales }) 
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">Forecast Accuracy</p>
                   <h4 className="text-2xl font-bold text-foreground mt-2">94.2%</h4>
-                  <span className="text-xs text-emerald-400 font-medium mt-1 inline-flex items-center">
+                  <span className="text-xs text-purple-400 font-medium mt-1 inline-flex items-center">
                     <TrendingUp className="w-3 h-3 mr-1" /> +1.4% vs last month
                   </span>
                 </div>
-                <div className="p-2 bg-emerald-500/10 rounded-lg">
-                  <TrendingUp className="w-5 h-5 text-emerald-500" />
+                <div className="p-2 bg-purple-500/10 rounded-lg">
+                  <TrendingUp className="w-5 h-5 text-purple-500" />
                 </div>
               </div>
             </div>

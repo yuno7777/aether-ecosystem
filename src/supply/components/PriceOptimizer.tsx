@@ -11,7 +11,7 @@ interface PriceOptimizerProps {
 
 const getChangeStyles = (change: number) => {
     if (change > 0) {
-        return { text: 'text-emerald-400', bg: 'bg-emerald-500/10', icon: ArrowUp };
+        return { text: 'text-purple-400', bg: 'bg-purple-500/10', icon: ArrowUp };
     } else if (change < 0) {
         return { text: 'text-red-400', bg: 'bg-red-500/10', icon: ArrowDown };
     }
@@ -21,7 +21,7 @@ const getChangeStyles = (change: number) => {
 const getConfidenceStyles = (confidence: PriceSuggestion['confidence']) => {
     switch (confidence) {
         case 'high':
-            return 'bg-emerald-500/10 text-emerald-400 border-emerald-900/50';
+            return 'bg-purple-500/10 text-purple-400 border-purple-900/50';
         case 'medium':
             return 'bg-amber-500/10 text-amber-400 border-amber-900/50';
         case 'low':
@@ -73,7 +73,7 @@ export const PriceOptimizer: React.FC<PriceOptimizerProps> = ({ analytics }) => 
             {/* Header */}
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
-                    Price Optimizer <DollarSign className="w-6 h-6 text-emerald-400" />
+                    Price Optimizer <DollarSign className="w-6 h-6 text-purple-400" />
                 </h1>
                 <p className="text-muted-foreground mt-1">AI-powered pricing recommendations based on demand and inventory levels.</p>
             </div>
@@ -91,14 +91,14 @@ export const PriceOptimizer: React.FC<PriceOptimizerProps> = ({ analytics }) => 
                         </div>
                     </div>
                 </div>
-                <div className="rounded-xl border border-emerald-900/30 bg-emerald-950/20 p-5">
+                <div className="rounded-xl border border-purple-900/30 bg-purple-950/20 p-5">
                     <div className="flex items-center justify-between">
                         <div>
-                            <p className="text-sm text-emerald-400/80">Price Increases</p>
-                            <p className="text-2xl font-bold text-emerald-400 mt-1">{impact.increases}</p>
+                            <p className="text-sm text-purple-400/80">Price Increases</p>
+                            <p className="text-2xl font-bold text-purple-400 mt-1">{impact.increases}</p>
                         </div>
-                        <div className="p-3 bg-emerald-500/20 rounded-lg">
-                            <TrendingUp className="w-5 h-5 text-emerald-400" />
+                        <div className="p-3 bg-purple-500/20 rounded-lg">
+                            <TrendingUp className="w-5 h-5 text-purple-400" />
                         </div>
                     </div>
                 </div>
@@ -185,7 +185,7 @@ export const PriceOptimizer: React.FC<PriceOptimizerProps> = ({ analytics }) => 
                                     return (
                                         <tr
                                             key={suggestion.productId}
-                                            className={`transition-colors ${isAccepted ? 'bg-emerald-950/20' : isRejected ? 'bg-red-950/10 opacity-50' : 'hover:bg-muted/30'
+                                            className={`transition-colors ${isAccepted ? 'bg-purple-950/20' : isRejected ? 'bg-red-950/10 opacity-50' : 'hover:bg-muted/30'
                                                 }`}
                                         >
                                             <td className="px-6 py-4">
@@ -223,14 +223,14 @@ export const PriceOptimizer: React.FC<PriceOptimizerProps> = ({ analytics }) => 
                                             <td className="px-6 py-4">
                                                 <div className="flex items-center justify-center gap-2">
                                                     {isAccepted ? (
-                                                        <span className="text-xs text-emerald-400 font-medium">Accepted</span>
+                                                        <span className="text-xs text-purple-400 font-medium">Accepted</span>
                                                     ) : isRejected ? (
                                                         <span className="text-xs text-red-400 font-medium">Rejected</span>
                                                     ) : (
                                                         <>
                                                             <button
                                                                 onClick={() => handleAccept(suggestion.productId)}
-                                                                className="p-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 transition-colors"
+                                                                className="p-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 transition-colors"
                                                                 title="Accept"
                                                             >
                                                                 <Check className="w-4 h-4" />

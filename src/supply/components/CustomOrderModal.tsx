@@ -163,8 +163,8 @@ export const CustomOrderModal: React.FC<CustomOrderModalProps> = ({
                 <div className="p-6 overflow-y-auto max-h-[calc(90vh-180px)]">
                     {step === 'sent' ? (
                         <div className="text-center py-8">
-                            <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <CheckCircle className="w-8 h-8 text-emerald-400" />
+                            <div className="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <CheckCircle className="w-8 h-8 text-purple-400" />
                             </div>
                             <h3 className="text-lg font-semibold text-foreground mb-2">Email Opened!</h3>
                             <p className="text-sm text-muted-foreground">
@@ -355,7 +355,7 @@ export const CustomOrderModal: React.FC<CustomOrderModalProps> = ({
                     {step === 'preview' && (
                         <button
                             onClick={handleSendEmail}
-                            className="flex items-center gap-2 px-4 py-2 text-sm bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors"
+                            className="flex items-center gap-2 px-4 py-2 text-sm bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors"
                         >
                             <Mail className="w-4 h-4" />
                             Open in Email Client

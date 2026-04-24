@@ -1,8 +1,11 @@
 "use server";
-import { PrismaClient } from '../../../prisma/generated/crm';
+import { PrismaClient } from '@prisma/client';
+import { revalidatePath } from 'next/cache';
 import { Client, Task, Deal } from '../../store';
 
-const prisma = new PrismaClient();
+const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
+const prisma = globalForPrisma.prisma || new PrismaClient();
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 
 export const fetchClients = async (): Promise<Client[]> => {
     const rows = await prisma.client.findMany();
@@ -43,6 +46,7 @@ export const toggleTaskCompleted = async (id: number, currentStatus: boolean): P
         where: { id },
         data: { completed: !currentStatus }
     });
+    revalidatePath('/', 'layout');
 };
 
 export const createDeal = async (deal: Omit<Deal, 'id'>): Promise<Deal> => {
@@ -54,6 +58,7 @@ export const createDeal = async (deal: Omit<Deal, 'id'>): Promise<Deal> => {
             stageId: deal.stageId
         }
     });
+    revalidatePath('/', 'layout');
     return {
         id: d.id,
         client: d.client,
@@ -61,4 +66,19 @@ export const createDeal = async (deal: Omit<Deal, 'id'>): Promise<Deal> => {
         days: d.days,
         stageId: d.stageId
     };
+};
+
+export const updateDealStage = async (id: number, stageId: string): Promise<void> => {
+    await prisma.deal.update({
+        where: { id },
+        data: { stageId }
+    });
+    revalidatePath('/', 'layout');
+};
+
+export const deleteDeal = async (id: number): Promise<void> => {
+    await prisma.deal.delete({
+        where: { id }
+    });
+    revalidatePath('/', 'layout');
 };

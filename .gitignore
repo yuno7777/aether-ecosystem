@@ -17,3 +17,18 @@ out/
 
 # Prisma
 /src/generated/prisma
+*.db
+*.sqlite
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# IDEs / Tooling
+.claude/
+tsconfig.tsbuildinfo
+
+# Datasets / Large files
+*.csv
+*.pkl

@@ -107,7 +107,7 @@ export const Suppliers: React.FC<SuppliersProps> = ({ suppliers, deliveries = []
                     </div>
                   </div>
                   {supplier.onTimePercent !== undefined && (
-                    <span className={`px-2 py-1 text-xs rounded font-medium ${supplier.onTimePercent >= 90 ? 'bg-emerald-500/20 text-emerald-400' :
+                    <span className={`px-2 py-1 text-xs rounded font-medium ${supplier.onTimePercent >= 90 ? 'bg-purple-500/20 text-purple-400' :
                       supplier.onTimePercent >= 75 ? 'bg-amber-500/20 text-amber-400' :
                         'bg-red-500/20 text-red-400'
                       }`}>
@@ -150,7 +150,7 @@ export const Suppliers: React.FC<SuppliersProps> = ({ suppliers, deliveries = []
               <div className="px-6 py-3 bg-muted/20 border-t border-border flex justify-between">
                 <button
                   onClick={() => handleQuickOrder(supplier)}
-                  className="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1"
+                  className="text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1"
                 >
                   <Send className="w-3.5 h-3.5" />
                   Quick Order

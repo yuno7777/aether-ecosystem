@@ -1,4 +1,4 @@
-import { PrismaClient } from './generated/crm';
+import { PrismaClient } from '@prisma/client';
 import { INITIAL_CLIENTS, INITIAL_TASKS, INITIAL_DEALS } from '../src/store';
 
 const prisma = new PrismaClient();

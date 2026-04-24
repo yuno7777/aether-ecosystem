@@ -81,7 +81,7 @@ export const ProductList: React.FC<ProductListProps> = ({
 
   const getTrendIcon = (trend: DemandTrend) => {
     switch (trend) {
-      case DemandTrend.INCREASING: return <div className="flex items-center text-emerald-400 font-medium text-xs"><span className="mr-1.5 text-emerald-500">↑</span> Rising</div>;
+      case DemandTrend.INCREASING: return <div className="flex items-center text-purple-400 font-medium text-xs"><span className="mr-1.5 text-purple-500">↑</span> Rising</div>;
       case DemandTrend.DECLINING: return <div className="flex items-center text-red-400 font-medium text-xs"><span className="mr-1.5 text-red-500">↓</span> Falling</div>;
       default: return <div className="text-muted-foreground text-xs">Stable</div>;
     }

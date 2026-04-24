@@ -95,8 +95,8 @@ export const ProfitMargins: React.FC<ProfitMarginsProps> = ({ analytics }) => {
         <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             {/* Header */}
             <div className="flex items-center gap-3">
-                <div className="p-2 bg-emerald-500/10 rounded-lg">
-                    <Percent className="w-5 h-5 text-emerald-400" />
+                <div className="p-2 bg-purple-500/10 rounded-lg">
+                    <Percent className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
                     <h3 className="text-lg font-semibold text-foreground">Profit Margin Analysis</h3>
@@ -116,7 +116,7 @@ export const ProfitMargins: React.FC<ProfitMarginsProps> = ({ analytics }) => {
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                     <p className="text-xs text-muted-foreground">Potential Profit</p>
-                    <p className="text-xl font-bold text-emerald-400">₹{summary.totalPotentialProfit.toLocaleString()}</p>
+                    <p className="text-xl font-bold text-purple-400">₹{summary.totalPotentialProfit.toLocaleString()}</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                     <p className="text-xs text-muted-foreground">Average Margin</p>
@@ -211,7 +211,7 @@ export const ProfitMargins: React.FC<ProfitMarginsProps> = ({ analytics }) => {
                                     <td className="px-6 py-4 font-medium text-foreground">{m.productName}</td>
                                     <td className="px-6 py-4 text-right text-foreground">₹{m.price.toFixed(2)}</td>
                                     <td className="px-6 py-4 text-right text-muted-foreground">₹{m.cost.toFixed(2)}</td>
-                                    <td className="px-6 py-4 text-right text-emerald-400">₹{m.profitPerUnit.toFixed(2)}</td>
+                                    <td className="px-6 py-4 text-right text-purple-400">₹{m.profitPerUnit.toFixed(2)}</td>
                                     <td className="px-6 py-4 text-center">
                                         <span
                                             className="px-2 py-1 text-xs rounded font-medium"
@@ -225,7 +225,7 @@ export const ProfitMargins: React.FC<ProfitMarginsProps> = ({ analytics }) => {
                                     </td>
                                     <td className="px-6 py-4 text-right text-muted-foreground">{m.stock}</td>
                                     <td className="px-6 py-4 text-right">
-                                        <span className="font-medium text-emerald-400">₹{m.potentialProfit.toLocaleString()}</span>
+                                        <span className="font-medium text-purple-400">₹{m.potentialProfit.toLocaleString()}</span>
                                     </td>
                                 </tr>
                             ))}

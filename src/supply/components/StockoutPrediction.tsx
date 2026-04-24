@@ -19,14 +19,14 @@ const getRiskStyles = (risk: StockoutPrediction['riskLevel']) => {
         case 'medium':
             return { bg: 'bg-amber-500', text: 'text-amber-400', border: 'border-amber-900/50', badge: 'bg-amber-500/20' };
         case 'low':
-            return { bg: 'bg-emerald-500', text: 'text-emerald-400', border: 'border-emerald-900/50', badge: 'bg-emerald-500/20' };
+            return { bg: 'bg-purple-500', text: 'text-purple-400', border: 'border-purple-900/50', badge: 'bg-purple-500/20' };
     }
 };
 
 const getConfidenceBadge = (confidence: StockoutPrediction['confidence']) => {
     switch (confidence) {
         case 'high':
-            return 'bg-emerald-500/10 text-emerald-400 border-emerald-900/50';
+            return 'bg-purple-500/10 text-purple-400 border-purple-900/50';
         case 'medium':
             return 'bg-amber-500/10 text-amber-400 border-amber-900/50';
         case 'low':

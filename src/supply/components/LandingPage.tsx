@@ -114,17 +114,17 @@ export function LandingPage() {
                     <div className="w-full md:w-1/2">
                         <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-medium tracking-tight leading-[1.1] mb-6">
                             Are you<br />
-                            <span className="text-gray-400">looking for</span><span className="text-[#a78bfa]">-</span><br />
+                            <span className="text-gray-400">looking for</span><span className="text-[#7663b0]">-</span><br />
                             a <span className="text-white">smarter</span><br />
-                            <span className="text-[#a78bfa]">-</span>supply chain?
+                            <span className="text-[#7663b0]">-</span>supply chain?
                         </motion.h2>
 
                         <motion.div variants={staggerItem} className="relative max-w-md mb-8 group">
-                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-[#a78bfa] transition-colors" />
+                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-[#7663b0] transition-colors" />
                             <input
                                 type="text"
                                 placeholder="Search solutions..."
-                                className="w-full pl-12 pr-4 py-3.5 bg-white/[0.03] border border-white/10 rounded-full text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-[#a78bfa]/50 focus:bg-white/[0.05] transition-all"
+                                className="w-full pl-12 pr-4 py-3.5 bg-white/[0.03] border border-white/10 rounded-full text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-[#7663b0]/50 focus:bg-white/[0.05] transition-all"
                             />
                             <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors">
                                 <ArrowRight className="w-4 h-4 text-black" />
@@ -138,11 +138,11 @@ export function LandingPage() {
 
                     {/* Hero Feature Image/Card replacing the house */}
                     <motion.div variants={staggerItem} className="w-full md:w-[45%] rounded-3xl p-2 bg-gradient-to-br from-white/10 to-transparent border border-white/10 relative overflow-hidden group" style={{ willChange: 'transform, opacity' }}>
-                        <div className="absolute inset-0 bg-[#a78bfa]/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                        <div className="absolute inset-0 bg-[#7663b0]/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                         <div className="relative rounded-2xl overflow-hidden bg-[#121214] border border-white/[0.05] aspect-[4/3] flex flex-col justify-between p-6">
 
                             <div className="flex justify-between items-start">
-                                <div className="px-3 py-1 bg-[#a78bfa]/20 text-[#a78bfa] rounded-full text-[10px] font-bold tracking-wider uppercase">
+                                <div className="px-3 py-1 bg-[#7663b0]/20 text-[#7663b0] rounded-full text-[10px] font-bold tracking-wider uppercase">
                                     Live Dashboard
                                 </div>
                                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
@@ -155,7 +155,7 @@ export function LandingPage() {
                                 <div className="h-2 w-1/3 bg-white/20 rounded-full" />
                                 <div className="flex gap-2 items-end h-24">
                                     {[40, 70, 45, 90, 60, 80, 50].map((h, i) => (
-                                        <div key={i} className="flex-1 bg-gradient-to-t from-[#a78bfa]/80 to-[#a78bfa]/20 rounded-t-sm transition-all duration-700 hover:h-full" style={{ height: `${h}%` }} />
+                                        <div key={i} className="flex-1 bg-gradient-to-t from-[#7663b0]/80 to-[#7663b0]/20 rounded-t-sm transition-all duration-700 hover:h-full" style={{ height: `${h}%` }} />
                                     ))}
                                 </div>
                             </div>
@@ -195,7 +195,7 @@ export function LandingPage() {
                                 <p className="text-sm text-gray-300">{item.text}</p>
                             </div>
                             <div className="flex items-end justify-between">
-                                <span className="text-2xl font-semibold text-[#a78bfa]">{item.val}</span>
+                                <span className="text-2xl font-semibold text-[#7663b0]">{item.val}</span>
                                 <span className="text-[10px] text-gray-600">Active</span>
                             </div>
                         </motion.div>
@@ -209,13 +209,13 @@ export function LandingPage() {
                 <div>
                     <h2 className="text-5xl md:text-6xl font-medium tracking-tight leading-[1]">
                         Quality<br />
-                        <span className="text-[#a78bfa]">-</span>Velocity<br />
+                        <span className="text-[#7663b0]">-</span>Velocity<br />
                         Intelligence
                     </h2>
                 </div>
                 <div className="max-w-md">
                     <div className="flex items-center gap-2 mb-4">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#7663b0]" />
                         <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Work in Progress</span>
                     </div>
                     <p className="text-sm text-gray-400 leading-relaxed mb-8">
@@ -256,7 +256,7 @@ export function LandingPage() {
                             Control your
                         </h2>
                         <div className="flex items-center gap-2 pb-4">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#7663b0]" />
                             <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">Modules</span>
                         </div>
                     </div>
@@ -272,7 +272,7 @@ export function LandingPage() {
                             <motion.div
                                 variants={staggerItem}
                                 key={i}
-                                className={`group flex items-center justify-between py-6 px-4 border-b border-white/5 transition-colors cursor-pointer hover:bg-white/[0.02] ${row.highlight ? 'bg-[#a78bfa] text-black hover:bg-[#9333ea]' : ''}`}
+                                className={`group flex items-center justify-between py-6 px-4 border-b border-white/5 transition-colors cursor-pointer hover:bg-white/[0.02] ${row.highlight ? 'bg-[#7663b0] text-black hover:bg-[#9333ea]' : ''}`}
                             >
                                 <div className="flex gap-20 w-1/2">
                                     <span className={`text-sm font-semibold w-60 ${row.highlight ? 'text-black' : 'text-white'}`}>{row.name}</span>
@@ -288,7 +288,7 @@ export function LandingPage() {
                             Enjoy the peace of mind knowing your entire supply chain is monitored by advanced intelligence. Discover operational secrets, exploring hidden efficiencies and robust pathways.
                         </p>
                         <h2 className="text-6xl md:text-8xl font-bold tracking-tighter text-right">
-                            <span className="text-[#a78bfa]">-</span>entire chain.
+                            <span className="text-[#7663b0]">-</span>entire chain.
                         </h2>
                     </div>
                 </motion.div>
@@ -305,7 +305,7 @@ export function LandingPage() {
                     </div>
 
                     <div className="w-full text-center mb-20">
-                        <a href="mailto:info@aethersupply.com" className="text-3xl md:text-5xl font-medium text-white hover:text-[#a78bfa] transition-colors">
+                        <a href="mailto:info@aethersupply.com" className="text-3xl md:text-5xl font-medium text-white hover:text-[#7663b0] transition-colors">
                             info@aethersupply.com
                         </a>
                     </div>
@@ -324,7 +324,7 @@ export function LandingPage() {
                     </div>
 
                     <div className="w-full flex justify-center pb-8 pt-4">
-                        <h1 className="text-[12vw] font-bold text-[#a78bfa] tracking-tighter leading-tight select-none opacity-90 whitespace-nowrap">
+                        <h1 className="text-[12vw] font-bold text-[#7663b0] tracking-tighter leading-tight select-none opacity-90 whitespace-nowrap">
                             aether supply
                         </h1>
                     </div>
@@ -378,7 +378,7 @@ export function LandingPage() {
                             <Link
                                 href="/login"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="mt-8 flex items-center gap-2 px-8 py-4 rounded-full text-xl font-semibold bg-[#a78bfa] text-black hover:bg-[#8b5cf6] transition-all"
+                                className="mt-8 flex items-center gap-2 px-8 py-4 rounded-full text-xl font-semibold bg-[#7663b0] text-black hover:bg-[#8b5cf6] transition-all"
                             >
                                 Dashboard <ArrowRight className="w-5 h-5" />
                             </Link>

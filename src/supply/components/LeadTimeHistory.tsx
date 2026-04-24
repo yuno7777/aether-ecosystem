@@ -89,10 +89,10 @@ export const LeadTimeHistory: React.FC<LeadTimeHistoryProps> = ({ suppliers, del
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="rounded-xl border border-border bg-card p-4">
                     <div className="flex items-center gap-2 mb-2">
-                        <CheckCircle className="w-4 h-4 text-emerald-400" />
+                        <CheckCircle className="w-4 h-4 text-purple-400" />
                         <p className="text-xs text-muted-foreground">On-Time / Early</p>
                     </div>
-                    <p className="text-2xl font-bold text-emerald-400">{summary.onTime}</p>
+                    <p className="text-2xl font-bold text-purple-400">{summary.onTime}</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                     <div className="flex items-center gap-2 mb-2">
@@ -110,7 +110,7 @@ export const LeadTimeHistory: React.FC<LeadTimeHistoryProps> = ({ suppliers, del
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                     <p className="text-xs text-muted-foreground mb-2">Avg Variance</p>
-                    <p className={`text-2xl font-bold ${summary.avgVariance <= 0 ? 'text-emerald-400' : summary.avgVariance <= 1 ? 'text-amber-400' : 'text-red-400'}`}>
+                    <p className={`text-2xl font-bold ${summary.avgVariance <= 0 ? 'text-purple-400' : summary.avgVariance <= 1 ? 'text-amber-400' : 'text-red-400'}`}>
                         {summary.avgVariance >= 0 ? '+' : ''}{summary.avgVariance.toFixed(1)} days
                     </p>
                 </div>
@@ -161,7 +161,7 @@ export const LeadTimeHistory: React.FC<LeadTimeHistoryProps> = ({ suppliers, del
                                     <td className="px-4 py-3 text-center text-muted-foreground">{d.promisedDays}d</td>
                                     <td className="px-4 py-3 text-center text-foreground">{d.actualDays}d</td>
                                     <td className="px-4 py-3 text-center">
-                                        <span className={`px-2 py-1 text-xs rounded font-medium ${d.variance <= 0 ? 'bg-emerald-500/20 text-emerald-400' :
+                                        <span className={`px-2 py-1 text-xs rounded font-medium ${d.variance <= 0 ? 'bg-purple-500/20 text-purple-400' :
                                             d.variance <= 2 ? 'bg-amber-500/20 text-amber-400' :
                                                 'bg-red-500/20 text-red-400'
                                             }`}>

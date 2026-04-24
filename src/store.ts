@@ -13,8 +13,8 @@ export const STATS = [
 ];
 
 export const PIPELINE_STAGES: PipelineStage[] = [
-  { id: 'lead', name: 'Lead', color: 'bg-violet-300/20 text-violet-300 border-violet-300/30' },
-  { id: 'contacted', name: 'Contacted', color: 'bg-fuchsia-300/20 text-fuchsia-300 border-fuchsia-300/30' },
+  { id: 'lead', name: 'Lead', color: 'bg-purple-300/20 text-purple-300 border-purple-300/30' },
+  { id: 'contacted', name: 'Contacted', color: 'bg-purple-300/20 text-purple-300 border-purple-300/30' },
   { id: 'proposal', name: 'Proposal', color: 'bg-purple-300/20 text-purple-300 border-purple-300/30' },
   { id: 'won', name: 'Won', color: 'bg-indigo-300/20 text-indigo-300 border-indigo-300/30' }
 ];

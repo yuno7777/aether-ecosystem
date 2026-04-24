@@ -243,7 +243,7 @@ export const BulkImport: React.FC<BulkImportProps> = ({
                         <>
                             {/* Preview Stats */}
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-lg text-sm">
+                                <div className="flex items-center gap-2 px-3 py-1.5 bg-purple-500/10 text-purple-400 rounded-lg text-sm">
                                     <Check className="w-4 h-4" />
                                     {validCount} valid
                                 </div>
@@ -275,7 +275,7 @@ export const BulkImport: React.FC<BulkImportProps> = ({
                                                 <tr key={i} className={p.isValid ? '' : 'bg-red-500/5'}>
                                                     <td className="px-3 py-2">
                                                         {p.isValid ? (
-                                                            <Check className="w-4 h-4 text-emerald-400" />
+                                                            <Check className="w-4 h-4 text-purple-400" />
                                                         ) : (
                                                             <AlertTriangle className="w-4 h-4 text-red-400" />
                                                         )}

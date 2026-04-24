@@ -61,5 +61,5 @@ export const ExportButton: React.FC<ExportButtonProps> = ({ options, label = 'Ex
 };
 
 // Preset icon components for common exports
-export const CSVIcon = () => <FileSpreadsheet className="w-4 h-4 text-emerald-400" />;
+export const CSVIcon = () => <FileSpreadsheet className="w-4 h-4 text-purple-400" />;
 export const PDFIcon = () => <FileText className="w-4 h-4 text-red-400" />;

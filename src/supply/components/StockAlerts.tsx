@@ -142,8 +142,8 @@ export const StockAlerts: React.FC<StockAlertsProps> = ({ analytics }) => {
             {/* Alerts List */}
             {alerts.length === 0 ? (
                 <div className="rounded-xl border border-border bg-card p-8 text-center">
-                    <div className="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <Check className="w-6 h-6 text-emerald-400" />
+                    <div className="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Check className="w-6 h-6 text-purple-400" />
                     </div>
                     <p className="font-medium text-foreground">All Clear!</p>
                     <p className="text-sm text-muted-foreground mt-1">No stock alerts at the moment.</p>

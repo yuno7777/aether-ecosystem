@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { Settings, ArrowRight, Search, Menu, X, Users, Package } from 'lucide-react';
+import { ArrowRight, Search, Menu, X, Users, Package, FileText, Calculator, Bot } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
@@ -44,6 +44,10 @@ export default function LandingPage() {
     { name: 'Home', path: '/' },
     { name: 'Supply Chain', path: '/supply' },
     { name: 'CRM', path: '/crm' },
+    { name: 'Documents', path: '/documents' },
+    { name: 'Tax', path: '/tax' },
+    { name: 'SDR Agent', path: '/sdr' },
+    { name: 'Comm. Agent', path: '/commerce' },
   ];
 
   return (
@@ -51,13 +55,10 @@ export default function LandingPage() {
 
       {/* Navbar */}
       <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${scrolled ? 'w-[95%] max-w-7xl' : 'w-[90%] max-w-6xl'}`}>
-        <div className="flex items-center justify-between px-6 py-3 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md shadow-2xl">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center gap-0.5 opacity-90">
-              <Settings className="w-5 h-5" />
-              <Settings className="w-3 h-3 -ml-1" />
-            </div>
-            <span className="font-bold tracking-tight">Aether</span>
+        <div className="flex items-center justify-between px-5 py-2 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md shadow-2xl">
+          <Link href="/" className="flex items-center gap-2 ml-[2%]">
+            <img src="/logo.png" alt="Aether" width={44} height={44} className="w-[44px] h-[44px] object-contain" />
+            <span className="text-xl font-bold tracking-tight">Aether</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-1 bg-white/[0.04] rounded-full p-1 border border-white/5">
@@ -83,12 +84,12 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-[100vh] flex flex-col items-center justify-center pt-32 pb-20 px-4">
+      <section className="relative min-h-[80vh] flex flex-col items-center justify-start pt-28 pb-20 px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute top-[20%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none z-0"
+          className="absolute top-[12%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none z-0"
         >
           <h1 className="text-[15vw] md:text-[18vw] font-bold text-white/[0.02] tracking-tighter leading-none select-none">
             AETHER
@@ -99,31 +100,31 @@ export default function LandingPage() {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="w-full max-w-7xl relative z-10 flex flex-col items-center text-center gap-8 mt-10 md:mt-20"
+          className="w-full max-w-7xl relative z-10 flex flex-col items-center text-center gap-8 mt-6 md:mt-10"
         >
           <motion.h2 variants={staggerItem} className="text-5xl md:text-7xl font-medium tracking-tight leading-[1.1]">
-            One Platform<span className="text-[#a78bfa]">.</span><br />
-            <span className="text-gray-400">Two Powerhouses</span><span className="text-[#a78bfa]">.</span>
+            One Platform<span className="text-[#7663b0]">.</span><br />
+            <span className="text-gray-400">Six Powerhouses</span><span className="text-[#7663b0]">.</span>
           </motion.h2>
 
           <motion.p variants={staggerItem} className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl opacity-80">
-            Aether unifies your supply chain management and customer relationships into a single, intelligent platform. Choose your workspace below.
+            Aether unifies supply chain management, customer relationships, and intelligent document processing into a single platform. Choose your workspace below.
           </motion.p>
 
-          {/* Two Product Cards */}
-          <motion.div variants={staggerItem} className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          {/* Powerhouse Grid Layout */}
+          <motion.div variants={staggerItem} className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
 
             {/* Aether Supply Card */}
             <Link href="/supply" className="group">
-              <div className="rounded-3xl p-2 bg-gradient-to-br from-white/10 to-transparent border border-white/10 relative overflow-hidden hover:border-[#a78bfa]/40 transition-all duration-500">
-                <div className="absolute inset-0 bg-[#a78bfa]/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="rounded-3xl p-2 bg-gradient-to-br from-white/10 to-transparent border border-white/10 relative overflow-hidden hover:border-[#7663b0]/40 transition-all duration-500">
+                <div className="absolute inset-0 bg-[#7663b0]/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="relative rounded-2xl overflow-hidden bg-[#121214] border border-white/[0.05] aspect-[4/3] flex flex-col justify-between p-6">
                   <div className="flex justify-between items-start">
-                    <div className="px-3 py-1 bg-[#a78bfa]/20 text-[#a78bfa] rounded-full text-[10px] font-bold tracking-wider uppercase">
+                    <div className="px-3 py-1 bg-[#7663b0]/20 text-[#7663b0] rounded-full text-[10px] font-bold tracking-wider uppercase">
                       Supply Chain
                     </div>
-                    <div className="w-10 h-10 rounded-full bg-[#a78bfa]/10 flex items-center justify-center group-hover:bg-[#a78bfa]/20 transition-colors">
-                      <Package className="w-5 h-5 text-[#a78bfa]" />
+                    <div className="w-10 h-10 rounded-full bg-[#7663b0]/10 flex items-center justify-center group-hover:bg-[#7663b0]/20 transition-colors">
+                      <Package className="w-5 h-5 text-[#7663b0]" />
                     </div>
                   </div>
 
@@ -131,13 +132,13 @@ export default function LandingPage() {
                     <div className="h-2 w-1/3 bg-white/20 rounded-full" />
                     <div className="flex gap-2 items-end h-24">
                       {[40, 70, 45, 90, 60, 80, 50].map((h, i) => (
-                        <div key={i} className="flex-1 bg-gradient-to-t from-[#a78bfa]/80 to-[#a78bfa]/20 rounded-t-sm transition-all duration-700 group-hover:opacity-100 opacity-60" style={{ height: `${h}%` }} />
+                        <div key={i} className="flex-1 bg-gradient-to-t from-[#7663b0]/80 to-[#7663b0]/20 rounded-t-sm transition-all duration-700 group-hover:opacity-100 opacity-60" style={{ height: `${h}%` }} />
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-[#a78bfa] transition-colors">Aether Supply</h3>
+                    <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-[#7663b0] transition-colors">Aether Supply</h3>
                     <p className="text-xs text-gray-500">Inventory, forecasting, warehouses & suppliers</p>
                   </div>
                 </div>
@@ -146,15 +147,15 @@ export default function LandingPage() {
 
             {/* AetherCRM Card */}
             <Link href="/crm" className="group">
-              <div className="rounded-3xl p-2 bg-gradient-to-br from-white/10 to-transparent border border-white/10 relative overflow-hidden hover:border-violet-400/40 transition-all duration-500">
-                <div className="absolute inset-0 bg-violet-400/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="rounded-3xl p-2 bg-gradient-to-br from-white/10 to-transparent border border-white/10 relative overflow-hidden hover:border-purple-400/40 transition-all duration-500">
+                <div className="absolute inset-0 bg-purple-400/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="relative rounded-2xl overflow-hidden bg-[#121214] border border-white/[0.05] aspect-[4/3] flex flex-col justify-between p-6">
                   <div className="flex justify-between items-start">
-                    <div className="px-3 py-1 bg-violet-400/20 text-violet-400 rounded-full text-[10px] font-bold tracking-wider uppercase">
+                    <div className="px-3 py-1 bg-purple-400/20 text-purple-400 rounded-full text-[10px] font-bold tracking-wider uppercase">
                       CRM
                     </div>
-                    <div className="w-10 h-10 rounded-full bg-violet-400/10 flex items-center justify-center group-hover:bg-violet-400/20 transition-colors">
-                      <Users className="w-5 h-5 text-violet-400" />
+                    <div className="w-10 h-10 rounded-full bg-purple-400/10 flex items-center justify-center group-hover:bg-purple-400/20 transition-colors">
+                      <Users className="w-5 h-5 text-purple-400" />
                     </div>
                   </div>
 
@@ -163,7 +164,7 @@ export default function LandingPage() {
                     <div className="grid grid-cols-4 gap-2 h-24">
                       {['Lead', 'Contact', 'Proposal', 'Won'].map((stage, i) => (
                         <div key={i} className="flex flex-col justify-end gap-1">
-                          <div className="bg-gradient-to-t from-violet-400/80 to-violet-400/20 rounded-t-sm transition-all duration-700 group-hover:opacity-100 opacity-60" style={{ height: `${[35, 55, 40, 75][i]}%` }} />
+                          <div className="bg-gradient-to-t from-purple-400/80 to-purple-400/20 rounded-t-sm transition-all duration-700 group-hover:opacity-100 opacity-60" style={{ height: `${[35, 55, 40, 75][i]}%` }} />
                           <span className="text-[8px] text-gray-600 text-center">{stage}</span>
                         </div>
                       ))}
@@ -171,8 +172,146 @@ export default function LandingPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-violet-400 transition-colors">AetherCRM</h3>
+                    <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-purple-400 transition-colors">AetherCRM</h3>
                     <p className="text-xs text-gray-500">Clients, deals, pipeline & task management</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* AetherDocs Card */}
+            <Link href="/documents" className="group">
+              <div className="rounded-3xl p-2 bg-gradient-to-br from-white/10 to-transparent border border-white/10 relative overflow-hidden hover:border-purple-400/40 transition-all duration-500">
+                <div className="absolute inset-0 bg-purple-400/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative rounded-2xl overflow-hidden bg-[#121214] border border-white/[0.05] aspect-[4/3] flex flex-col justify-between p-6">
+                  <div className="flex justify-between items-start">
+                    <div className="px-3 py-1 bg-purple-400/20 text-purple-400 rounded-full text-[10px] font-bold tracking-wider uppercase">
+                      Documents
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-purple-400/10 flex items-center justify-center group-hover:bg-purple-400/20 transition-colors">
+                      <FileText className="w-5 h-5 text-purple-400" />
+                    </div>
+                  </div>
+
+                  <div className="my-auto w-full space-y-3">
+                    <div className="h-2 w-1/5 bg-white/20 rounded-full" />
+                    <div className="space-y-2">
+                      {[85, 60, 95, 40, 75].map((w, i) => (
+                        <div key={i} className="flex items-center gap-2 h-4">
+                          <div className="w-3 h-3 rounded bg-purple-400/30 shrink-0" />
+                          <div className="bg-gradient-to-r from-purple-400/40 to-purple-400/10 rounded-sm h-2 transition-all duration-700 group-hover:opacity-100 opacity-60" style={{ width: `${w}%` }} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-purple-400 transition-colors">AetherDocs</h3>
+                    <p className="text-xs text-gray-500">AI document extraction & processing pipeline</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* AetherTax Card */}
+            <Link href="/tax" className="group">
+              <div className="rounded-3xl p-2 bg-gradient-to-br from-white/10 to-transparent border border-white/10 relative overflow-hidden hover:border-purple-400/40 transition-all duration-500">
+                <div className="absolute inset-0 bg-purple-400/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative rounded-2xl overflow-hidden bg-[#121214] border border-white/[0.05] aspect-[4/3] flex flex-col justify-between p-6">
+                  <div className="flex justify-between items-start">
+                    <div className="px-3 py-1 bg-purple-400/20 text-purple-400 rounded-full text-[10px] font-bold tracking-wider uppercase">
+                      Compliance
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-purple-400/10 flex items-center justify-center group-hover:bg-purple-400/20 transition-colors">
+                      <Calculator className="w-5 h-5 text-purple-400" />
+                    </div>
+                  </div>
+
+                  <div className="my-auto w-full space-y-3">
+                    <div className="h-2 w-1/4 bg-white/20 rounded-full" />
+                    <div className="grid grid-cols-3 gap-2 h-24">
+                      {[60, 90, 45].map((w, i) => (
+                        <div key={i} className="flex flex-col justify-end gap-1">
+                          <div className="bg-gradient-to-t from-purple-400/80 to-purple-400/20 rounded-t-sm transition-all duration-700 group-hover:opacity-100 opacity-60" style={{ height: `${w}%` }} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-purple-400 transition-colors">AetherTax</h3>
+                    <p className="text-xs text-gray-500">AI GST reconciliation, ITC tracking & alerts</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* AetherSDR Card */}
+            <Link href="/sdr" className="group">
+              <div className="rounded-3xl p-2 bg-gradient-to-br from-white/10 to-transparent border border-white/10 relative overflow-hidden hover:border-[#7663b0]/40 transition-all duration-500 h-full">
+                <div className="absolute inset-0 bg-[#7663b0]/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative rounded-2xl overflow-hidden bg-[#121214] border border-white/[0.05] aspect-[4/3] flex flex-col justify-between p-6">
+                  <div className="flex justify-between items-start mb-6 md:mb-0">
+                    <div className="px-3 py-1 bg-[#7663b0]/20 text-[#7663b0] rounded-full text-[10px] font-bold tracking-wider uppercase">
+                      Sales Rep Agent
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-[#7663b0]/10 flex items-center justify-center group-hover:bg-[#7663b0]/20 transition-colors">
+                      <Bot className="w-5 h-5 text-[#7663b0]" />
+                    </div>
+                  </div>
+
+                  <div className="my-auto w-full space-y-4 py-8">
+                    <div className="h-2 w-24 bg-white/20 rounded-full" />
+                    <div className="flex gap-3">
+                         <div className="h-8 w-8 shrink-0 rounded-full bg-[#7663b0]/30 animate-pulse border border-[#7663b0]/50" />
+                         <div className="space-y-1.5 flex-1">
+                             <div className="h-2 w-1/3 bg-[#7663b0]/40 rounded mb-2" />
+                             <div className="h-1.5 w-3/4 bg-white/10 rounded" />
+                             <div className="h-1.5 w-1/2 bg-white/10 rounded" />
+                         </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-[#7663b0] transition-colors">AetherSDR</h3>
+                    <p className="text-xs text-gray-500">Autonomous prospecting, cold emails & scheduling</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Aether Commerce Card */}
+            <Link href="/commerce" className="group">
+              <div className="rounded-3xl p-2 bg-gradient-to-br from-white/10 to-transparent border border-white/10 relative overflow-hidden hover:border-[#7663b0]/40 transition-all duration-500 h-full">
+                <div className="absolute inset-0 bg-[#7663b0]/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative rounded-2xl overflow-hidden bg-[#121214] border border-white/[0.05] aspect-[4/3] flex flex-col justify-between p-6">
+                  <div className="flex justify-between items-start mb-6 md:mb-0">
+                    <div className="px-3 py-1 bg-[#7663b0]/20 text-[#7663b0] rounded-full text-[10px] font-bold tracking-wider uppercase">
+                      WhatsApp AI
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-[#7663b0]/10 flex items-center justify-center group-hover:bg-[#7663b0]/20 transition-colors text-lg">
+                      💬
+                    </div>
+                  </div>
+
+                  <div className="my-auto w-full space-y-3 py-4">
+                    <div className="flex items-center gap-2">
+                       <div className="h-6 w-6 rounded-full bg-[#7663b0]/20 flex items-center justify-center"><span className="text-[10px]">🤖</span></div>
+                       <div className="h-2 flex-1 max-w-[60%] bg-[#7663b0]/40 rounded-full rounded-tl-sm"/>
+                    </div>
+                    <div className="flex items-center gap-2 flex-row-reverse">
+                       <div className="h-6 w-6 rounded-full bg-white/5 flex items-center justify-center"><span className="text-[10px]">🙎</span></div>
+                       <div className="h-2 flex-1 max-w-[40%] bg-white/10 rounded-full rounded-tr-sm"/>
+                    </div>
+                    <div className="flex items-center gap-2">
+                       <div className="h-6 w-6 rounded-full bg-[#7663b0]/20 flex items-center justify-center"><span className="text-[10px]">🛒</span></div>
+                       <div className="h-2 flex-1 max-w-[80%] bg-[#7663b0]/60 rounded-full rounded-tl-sm"/>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-[#7663b0] transition-colors">AetherCommerce</h3>
+                    <p className="text-xs text-gray-500">Multilingual WhatsApp bot for catalog & UPI payments</p>
                   </div>
                 </div>
               </div>
@@ -189,14 +328,15 @@ export default function LandingPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid grid-cols-2 md:grid-cols-5 gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
         >
           {[
             { num: '01', title: 'Demand Forecast', text: '98% Accuracy', val: 'GenAI' },
             { num: '02', title: 'CRM Pipeline', text: 'Deal Tracking', val: 'Real-time' },
-            { num: '03', title: 'Processing', text: 'Orders/sec', val: '10k+' },
-            { num: '04', title: 'Uptime', text: 'Reliability', val: '99.9%' },
+            { num: '03', title: 'Doc Processing', text: 'AI Extraction', val: 'Gemini' },
+            { num: '04', title: 'Auto-Reconciliation', text: 'GST Matching', val: 'Instant' },
             { num: '05', title: 'Integration', text: 'Unified Platform', val: 'REST' },
+            { num: '06', title: 'Autonomous SDR', text: 'Top-Funnel Sales', val: 'Agentic' },
           ].map((item, i) => (
             <motion.div key={i} variants={staggerItem} className="relative aspect-[3/4] rounded-2xl bg-[#111113] border border-white/5 p-5 flex flex-col justify-between group hover:bg-[#161619] transition-all overflow-hidden hover:-translate-y-1">
               <div className="absolute top-2 right-4 text-[80px] font-bold text-white/[0.03] group-hover:text-white/[0.05] transition-colors leading-none pointer-events-none">
@@ -207,7 +347,7 @@ export default function LandingPage() {
                 <p className="text-sm text-gray-300">{item.text}</p>
               </div>
               <div className="flex items-end justify-between">
-                <span className="text-2xl font-semibold text-[#a78bfa]">{item.val}</span>
+                <span className="text-2xl font-semibold text-[#7663b0]">{item.val}</span>
                 <span className="text-[10px] text-gray-600">Active</span>
               </div>
             </motion.div>
@@ -220,13 +360,13 @@ export default function LandingPage() {
         <div>
           <h2 className="text-5xl md:text-6xl font-medium tracking-tight leading-[1]">
             Quality<br />
-            <span className="text-[#a78bfa]">-</span>Velocity<br />
+            <span className="text-[#7663b0]">-</span>Velocity<br />
             Intelligence
           </h2>
         </div>
         <div className="max-w-md">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#7663b0]" />
             <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Unified Platform</span>
           </div>
           <p className="text-sm text-gray-400 leading-relaxed mb-8">
@@ -246,7 +386,7 @@ export default function LandingPage() {
               Control your
             </h2>
             <div className="flex items-center gap-2 pb-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#7663b0]" />
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">Modules</span>
             </div>
           </div>
@@ -256,13 +396,16 @@ export default function LandingPage() {
               { name: 'Products Catalog', desc: 'Centralized SKU Management', val: '14,024 items' },
               { name: 'Client Pipeline', desc: 'CRM Deal Tracking', val: 'Real-time' },
               { name: 'Supplier Management', desc: 'Contact & Lead Time Tracking', val: '280 active' },
-              { name: 'AI Forecast Engine', desc: 'Gemini-powered Analytics', val: 'Active', highlight: true },
+              { name: 'Document Pipeline', desc: 'AI-Powered Data Extraction', val: 'Gemini', highlight: false },
+              { name: 'GST & Compliance', desc: 'GSTR Reconciliations & Filing', val: 'Emerald', highlight: true },
+              { name: 'AI SDR Agent', desc: 'Autonomous Outreach & Cadences', val: 'Active', highlight: false },
+              { name: 'WhatsApp Commerce', desc: 'AI Customer Operations & UPI', val: 'Active', highlight: false },
               { name: 'Anomaly Defense', desc: 'Automated Issue Detection', val: 'Guarded' },
             ].map((row, i) => (
               <motion.div
                 variants={staggerItem}
                 key={i}
-                className={`group flex items-center justify-between py-6 px-4 border-b border-white/5 transition-colors cursor-pointer hover:bg-white/[0.02] ${row.highlight ? 'bg-[#a78bfa] text-black hover:bg-[#9333ea]' : ''}`}
+                className={`group flex items-center justify-between py-6 px-4 border-b border-white/5 transition-colors cursor-pointer hover:bg-white/[0.02] ${row.highlight ? 'bg-[#7663b0] text-black hover:bg-[#9333ea]' : ''}`}
               >
                 <div className="flex gap-20 w-1/2">
                   <span className={`text-sm font-semibold w-60 ${row.highlight ? 'text-black' : 'text-white'}`}>{row.name}</span>
@@ -278,7 +421,7 @@ export default function LandingPage() {
               Enjoy the peace of mind knowing your entire business is monitored by advanced intelligence. From supply chain to CRM, everything in one place.
             </p>
             <h2 className="text-6xl md:text-8xl font-bold tracking-tighter text-right">
-              <span className="text-[#a78bfa]">-</span>entire business.
+              <span className="text-[#7663b0]">-</span>entire business.
             </h2>
           </div>
         </motion.div>
@@ -289,12 +432,12 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto flex flex-col">
           <div className="flex justify-between items-center text-[10px] font-bold tracking-widest uppercase text-gray-500 mb-20">
             <span>Aether</span>
-            <span>Supply · CRM · Intelligence</span>
+            <span>Supply · CRM · Documents · Tax · Intelligence · Commerce</span>
             <span>Menu</span>
           </div>
 
           <div className="w-full text-center mb-20">
-            <a href="mailto:info@aether.com" className="text-3xl md:text-5xl font-medium text-white hover:text-[#a78bfa] transition-colors">
+            <a href="mailto:info@aether.com" className="text-3xl md:text-5xl font-medium text-white hover:text-[#7663b0] transition-colors">
               info@aether.com
             </a>
           </div>
@@ -313,7 +456,7 @@ export default function LandingPage() {
           </div>
 
           <div className="w-full flex justify-center pb-8 pt-4">
-            <h1 className="text-[12vw] font-bold text-[#a78bfa] tracking-tighter leading-tight select-none opacity-90 whitespace-nowrap">
+            <h1 className="text-[12vw] font-bold text-[#7663b0] tracking-tighter leading-tight select-none opacity-90 whitespace-nowrap">
               aether
             </h1>
           </div>
@@ -331,12 +474,9 @@ export default function LandingPage() {
             className="fixed inset-0 z-[100] bg-[#0a0a0c]/95 backdrop-blur-3xl flex flex-col pt-8 px-6"
           >
             <div className="flex items-center justify-between mb-16">
-              <div className="flex items-center gap-2">
-                <div className="flex items-center gap-0.5 opacity-90">
-                  <Settings className="w-5 h-5 text-white" />
-                  <Settings className="w-3 h-3 -ml-1 text-white" />
-                </div>
-                <span className="font-bold tracking-tight text-white">Aether</span>
+              <div className="flex items-center gap-2 ml-[2%]">
+                <img src="/logo.png" alt="Aether" width={44} height={44} className="w-[44px] h-[44px] object-contain" />
+                <span className="text-xl font-bold tracking-tight text-white">Aether</span>
               </div>
               <button
                 onClick={() => setMobileMenuOpen(false)}
@@ -360,7 +500,7 @@ export default function LandingPage() {
               <Link
                 href="/supply"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-8 flex items-center gap-2 px-8 py-4 rounded-full text-xl font-semibold bg-[#a78bfa] text-black hover:bg-[#8b5cf6] transition-all"
+                className="mt-8 flex items-center gap-2 px-8 py-4 rounded-full text-xl font-semibold bg-[#7663b0] text-black hover:bg-[#8b5cf6] transition-all"
               >
                 Dashboard <ArrowRight className="w-5 h-5" />
               </Link>

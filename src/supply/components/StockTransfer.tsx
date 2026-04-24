@@ -131,7 +131,7 @@ export const StockTransfer: React.FC<StockTransferProps> = ({ products, warehous
 
             {/* Success Message */}
             {success && (
-                <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm">
+                <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 text-sm">
                     ✓ {success}
                 </div>
             )}

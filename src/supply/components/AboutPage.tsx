@@ -43,12 +43,12 @@ export function AboutPage() {
                     className="text-center z-10 max-w-4xl"
                 >
                     <div className="flex justify-center mb-8">
-                        <div className="px-4 py-1.5 rounded-full bg-[#a78bfa]/10 border border-[#a78bfa]/20 text-[10px] font-bold tracking-[0.2em] uppercase text-[#a78bfa]">
+                        <div className="px-4 py-1.5 rounded-full bg-[#7663b0]/10 border border-[#7663b0]/20 text-[10px] font-bold tracking-[0.2em] uppercase text-[#7663b0]">
                             About Aether
                         </div>
                     </div>
                     <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-none">
-                        We build<br /><span className="text-[#a78bfa]">-</span>clarity.
+                        We build<br /><span className="text-[#7663b0]">-</span>clarity.
                     </h1>
                     <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
                         Born from a vision to eliminate supply chain opacity. We build the data pipelines and AI brains that let modern companies move at the speed of intelligence.
@@ -61,8 +61,8 @@ export function AboutPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                     <div>
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 rounded-full bg-[#a78bfa]/10 flex items-center justify-center border border-[#a78bfa]/20">
-                                <Target className="w-5 h-5 text-[#a78bfa]" />
+                            <div className="w-10 h-10 rounded-full bg-[#7663b0]/10 flex items-center justify-center border border-[#7663b0]/20">
+                                <Target className="w-5 h-5 text-[#7663b0]" />
                             </div>
                             <h3 className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Our Mission</h3>
                         </div>
@@ -75,8 +75,8 @@ export function AboutPage() {
                     </div>
                     <div>
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 rounded-full bg-[#a78bfa]/10 flex items-center justify-center border border-[#a78bfa]/20">
-                                <Eye className="w-5 h-5 text-[#a78bfa]" />
+                            <div className="w-10 h-10 rounded-full bg-[#7663b0]/10 flex items-center justify-center border border-[#7663b0]/20">
+                                <Eye className="w-5 h-5 text-[#7663b0]" />
                             </div>
                             <h3 className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Our Vision</h3>
                         </div>
@@ -94,7 +94,7 @@ export function AboutPage() {
             <section className="py-20 px-4 w-full max-w-7xl mx-auto">
                 <motion.div {...fadeIn} whileInView="animate" className="mb-16">
                     <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-none">
-                        Our<br /><span className="text-[#a78bfa]">-</span>Values
+                        Our<br /><span className="text-[#7663b0]">-</span>Values
                     </h2>
                 </motion.div>
                 <motion.div
@@ -111,7 +111,7 @@ export function AboutPage() {
                         { icon: <Users className="w-5 h-5" />, title: 'Human-Centered', desc: 'Technology should empower people, not replace them. Our tools amplify human decision-making with machine precision.' },
                     ].map((value, i) => (
                         <motion.div key={i} variants={staggerItem} className="rounded-2xl bg-[#111113] border border-white/5 p-6 flex flex-col gap-4 group hover:bg-[#161619] transition-all hover:-translate-y-1">
-                            <div className="w-10 h-10 rounded-full bg-[#a78bfa]/10 flex items-center justify-center text-[#a78bfa] border border-[#a78bfa]/20">
+                            <div className="w-10 h-10 rounded-full bg-[#7663b0]/10 flex items-center justify-center text-[#7663b0] border border-[#7663b0]/20">
                                 {value.icon}
                             </div>
                             <h4 className="text-base font-semibold">{value.title}</h4>
@@ -124,19 +124,19 @@ export function AboutPage() {
             {/* Numbers Strip */}
             <motion.section {...fadeIn} whileInView="animate" className="py-12 border-t border-b border-white/10 w-full max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div>
-                    <p className="text-3xl font-bold text-[#a78bfa] mb-1">2026</p>
+                    <p className="text-3xl font-bold text-[#7663b0] mb-1">2026</p>
                     <p className="text-[10px] text-gray-600 uppercase tracking-widest">Founded</p>
                 </div>
                 <div>
-                    <p className="text-3xl font-bold text-[#a78bfa] mb-1">12+</p>
+                    <p className="text-3xl font-bold text-[#7663b0] mb-1">12+</p>
                     <p className="text-[10px] text-gray-600 uppercase tracking-widest">Warehouses Tracked</p>
                 </div>
                 <div>
-                    <p className="text-3xl font-bold text-[#a78bfa] mb-1">99.9%</p>
+                    <p className="text-3xl font-bold text-[#7663b0] mb-1">99.9%</p>
                     <p className="text-[10px] text-gray-600 uppercase tracking-widest">Platform Uptime</p>
                 </div>
                 <div>
-                    <p className="text-3xl font-bold text-[#a78bfa] mb-1">&lt; 15ms</p>
+                    <p className="text-3xl font-bold text-[#7663b0] mb-1">&lt; 15ms</p>
                     <p className="text-[10px] text-gray-600 uppercase tracking-widest">Average Latency</p>
                 </div>
             </motion.section>
@@ -146,13 +146,13 @@ export function AboutPage() {
                 <motion.div {...fadeIn} whileInView="animate" className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
                     <div className="md:w-1/2">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 rounded-full bg-[#a78bfa]/10 flex items-center justify-center border border-[#a78bfa]/20">
-                                <MapPin className="w-5 h-5 text-[#a78bfa]" />
+                            <div className="w-10 h-10 rounded-full bg-[#7663b0]/10 flex items-center justify-center border border-[#7663b0]/20">
+                                <MapPin className="w-5 h-5 text-[#7663b0]" />
                             </div>
                             <h3 className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Headquarters</h3>
                         </div>
                         <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 leading-none">
-                            Mumbai<span className="text-[#a78bfa]">,</span><br />India.
+                            Mumbai<span className="text-[#7663b0]">,</span><br />India.
                         </h2>
                         <p className="text-sm text-gray-400 leading-relaxed max-w-md mb-8">
                             Based in the financial heart of India, Aether Supply is strategically positioned to serve the rapidly growing logistics and supply chain ecosystem of South Asia while maintaining a global perspective on commerce intelligence.
@@ -165,7 +165,7 @@ export function AboutPage() {
                         <div className="rounded-2xl bg-[#111113] border border-white/5 p-8 space-y-6">
                             <div className="flex justify-between items-center py-4 border-b border-white/5">
                                 <span className="text-sm text-gray-400">Email</span>
-                                <a href="mailto:info@aethersupply.com" className="text-sm font-medium text-white hover:text-[#a78bfa] transition-colors">info@aethersupply.com</a>
+                                <a href="mailto:info@aethersupply.com" className="text-sm font-medium text-white hover:text-[#7663b0] transition-colors">info@aethersupply.com</a>
                             </div>
                             <div className="flex justify-between items-center py-4 border-b border-white/5">
                                 <span className="text-sm text-gray-400">Location</span>
@@ -178,8 +178,8 @@ export function AboutPage() {
                             <div className="flex justify-between items-center py-4">
                                 <span className="text-sm text-gray-400">Status</span>
                                 <div className="flex items-center gap-2">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                                    <span className="text-sm font-medium text-emerald-400">Operational</span>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                                    <span className="text-sm font-medium text-purple-400">Operational</span>
                                 </div>
                             </div>
                         </div>

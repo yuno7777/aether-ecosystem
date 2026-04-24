@@ -21,12 +21,12 @@ export function ContactPage() {
                 className="text-center z-10 px-4"
             >
                 <div className="flex justify-center mb-8">
-                    <div className="w-20 h-20 rounded-full bg-[#a78bfa]/10 flex items-center justify-center border border-[#a78bfa]/20">
-                        <Mail className="w-8 h-8 text-[#a78bfa]" />
+                    <div className="w-20 h-20 rounded-full bg-[#7663b0]/10 flex items-center justify-center border border-[#7663b0]/20">
+                        <Mail className="w-8 h-8 text-[#7663b0]" />
                     </div>
                 </div>
                 <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 leading-none">
-                    <span className="text-[#a78bfa]">Contact</span> Us
+                    <span className="text-[#7663b0]">Contact</span> Us
                 </h1>
                 <p className="text-lg text-gray-400 max-w-xl mx-auto leading-relaxed mb-10">
                     Ready to transform your logistics? Let our engineers run a free diagnostic on your current supply chain architecture.
